@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 import { Payload } from "@lib/DB";
 
 
-export const GET = async (request: NextRequest) => {
+export const GET = async () => {
   const rawAuthHeader = headers().get("authorization");
 
   if (!rawAuthHeader || !rawAuthHeader.startsWith("Bearer ")) {
@@ -202,7 +202,7 @@ export const DELETE = async (request: NextRequest) => {
     );
   }
   //if role is "ADMIN", send the following response
-  if( role = "ADMIN"){
+  if( role === "ADMIN"){
    return NextResponse.json(
      {
        ok: true,
